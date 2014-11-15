@@ -2,8 +2,8 @@
 <resources
 >
     <string-array name="protocol">
-        <item >TCP</item>
-        <item >UDP</item>
-        <item >ICMP</item>
+        <item >ARP</item>
+        <item >IP</item>
+        <item >ALL</item>
     </string-array>
 </resources>

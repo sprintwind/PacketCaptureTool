@@ -1,4 +1,3 @@
-
 #include <jni.h>
 #include <net/if.h>
 #include <sys/ioctl.h>
@@ -168,36 +167,60 @@ void* capture_thread(void* arg)
 }
 
 /*
+ * 向stats_file中写入stats
+ */
+int write_statistics(char* stats_file, int stats)
+{
+	int writelen;
+	char intArr[MAX_INTEGER_LEN] = {0};
+
+	if(NULL == stats_file)
+	{
+		return -1;
+	}
+
+	FILE* file = fopen(stats_file, "w+");
+	if(NULL == file)
+	{
+		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "open statistics file %s failed, %s", stats_file, strerror(errno));
+		return errno;
+	}
+
+	sprintf(intArr, "%d", stats);
+	writelen = fwrite(intArr, sizeof(char), MAX_INTEGER_LEN, file);
+	if(writelen <= 0)
+	{
+		__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics fail, %s", strerror(errno));
+		return errno;
+	}
+
+	fclose(file);
+	return 0;
+}
+
+/*
  * 打印抓包状态线程
  */
 void* print_thread(void* arg)
 {
-	int writelen;
-	char intArr[MAX_INTEGER_LEN] = {0};
 	char stats_file[FILE_NAME_LEN] = {0};
 
 	sprintf(stats_file, "%s/%s", stats_file_dir, STATS_FILE);
 
 	while(capture)
 	{
-			FILE* file = fopen(stats_file, "w+");
-			if(NULL == file)
-			{
-				__android_log_print(ANDROID_LOG_INFO, "sprintwind", "open statistics file %s failed, %s", stats_file, strerror(errno));
-				break;
-			}
+		/* 将抓包个数写入统计文件 */
+		if(0 != write_statistics(stats_file, total_capture_count))
+		{
+			break;
+		}
 
-			sprintf(intArr, "%d", total_capture_count);
-			writelen = fwrite(intArr, sizeof(char), MAX_INTEGER_LEN, file);
-			if(writelen <= 0)
-			{
-				__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics fail, %s", strerror(errno));
-			}
-
-			fclose(file);
-
-			sleep(1);
+		sleep(1);
 	}
+
+	/* 抓包结束后，将统计值写为0 */
+	write_statistics(stats_file, 0);
+	__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics to 0");
 
 	return NULL;
 }
@@ -217,7 +240,7 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 				    };
 	struct pcap_file_header file_header;
 
-	sock_fd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+	sock_fd = socket(AF_PACKET, SOCK_RAW, htons(proto));
 	if(sock_fd < 0)
 	{
 		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "socket failed");
@@ -235,7 +258,7 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 		}
 	}
 
-	/* 设置过滤条件 */
+	/* 设置过滤条件
 	fprog.filter = filter;
 	fprog.len = sizeof(filter)/sizeof(struct sock_filter);
 	if( setsockopt(sock_fd, SOL_SOCKET, SO_ATTACH_FILTER, &fprog, sizeof(fprog)) < 0)
@@ -243,6 +266,7 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "SO_ATTACH_FILTER");
 		return errno;
 	}
+	*/
 
 
 	/* 初始化pcap文件头 */
@@ -293,13 +317,16 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 	ppkt_start = (char*)ppkthdr + PKT_HDR_LEN;
 
 	capture_count = 0;
+	total_capture_count = 0;
 	need_write_len = 0;
 
-	/*if(0 != pthread_create(&thread_id, NULL, capture_thread, NULL) )
+	/*
+	if(0 != pthread_create(&thread_id, NULL, capture_thread, NULL) )
 	{
 		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "create capture thread failed\n");
 		return -1;
-	}*/
+	}
+	*/
 
 	if(0 != pthread_create(&thread_id, NULL, print_thread, NULL))
 	{
@@ -307,6 +334,8 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 		return -1;
 	}
 
+
+	capture_thread(NULL);
 
 	return 0;
 
@@ -325,19 +354,19 @@ int get_protocol_value(char* proto)
 		return -1;
 	}
 
-	if(0==strcmp(proto, "TCP"))
+	if(0==strcmp(proto, "ARP"))
 	{
-		return 6;
+		return ETH_P_ARP;
 	}
 
-	if(0==strcmp(proto, "UDP"))
+	if(0==strcmp(proto, "IP"))
 	{
-		return 17;
+		return ETH_P_IP;
 	}
 
-	if(0==strcmp(proto, "ICMP"))
+	if(0==strcmp(proto, "ALL"))
 	{
-		return 1;
+		return ETH_P_ALL;
 	}
 
 	return -1;
@@ -367,13 +396,6 @@ int main(int argc, char* argv[])
 
 /*	if(pid == 0)
 	{*/
-		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "in child process, pid:%d", getpid());
-		if( start_capture(argv[1], proto, atoi(argv[3]), argv[4], argv[5]) != 0)
-		{
-			__android_log_print(ANDROID_LOG_INFO, "sprintwind", "start capture failed\n");
-			return -1;
-		}
-
 		/* 保存传入的路径，用于创建统计文件 */
 		strcpy(stats_file_dir, argv[4]);
 
@@ -381,7 +403,16 @@ int main(int argc, char* argv[])
 		signal(SIGTERM, stop_capture);
 		signal(SIGKILL, stop_capture);
 
-		capture_thread(NULL);
+		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "in child process, pid:%d", getpid());
+		if( start_capture(argv[1], proto, atoi(argv[3]), argv[4], argv[5]) != 0)
+		{
+			__android_log_print(ANDROID_LOG_INFO, "sprintwind", "start capture failed\n");
+			return -1;
+		}
+
+
+
+		//capture_thread(NULL);
 /*
 	}
 	else
@@ -411,7 +442,7 @@ int main(int argc, char* argv[])
 }
 
 
-JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIstartCapture(JNIEnv* env, jobject obj, jstring dev, jint proto, jint cap_len)
+JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIstartCapture(JNIEnv* env, jobject obj, jstring dev, jint proto, jint cap_len)
 //int start_capture(char* dev, int proto, int cap_len)
 {
 
@@ -513,13 +544,13 @@ JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIstartC
 	}
 }
 
-JNIEXPORT void JNICALL Java_com_example_packetcapturetool_MainActivity_JNIstopCapture(JNIEnv* env, jobject obj)
+JNIEXPORT void JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIstopCapture(JNIEnv* env, jobject obj)
 //void stop_capture()
 {
 	capture = 0;
 }
 
-JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIgetProtoValue(JNIEnv* env, jobject obj, jstring protocol)
+JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIgetProtoValue(JNIEnv* env, jobject obj, jstring protocol)
 {
 	jboolean isCopy = false;
 	const char* proto = env->GetStringUTFChars(protocol, &isCopy);
@@ -546,7 +577,7 @@ JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIgetPro
 	return -1;
 }
 
-JNIEXPORT jstring JNICALL Java_com_example_packetcapturetool_MainActivity_JNIgetInterfaces(JNIEnv* env, jobject obj)
+JNIEXPORT jstring JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIgetInterfaces(JNIEnv* env, jobject obj)
 {
 	int sock_fd;
 	int if_len;
@@ -600,7 +631,7 @@ JNIEXPORT jstring JNICALL Java_com_example_packetcapturetool_MainActivity_JNIget
 	return env->NewStringUTF(pResult);
 }
 
-JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIexcuteCommand(JNIEnv* env, jobject obj, jstring cmd, jstring args)
+JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIexcuteCommand(JNIEnv* env, jobject obj, jstring cmd, jstring args)
 {
 	const char* strCmd = env->GetStringUTFChars(cmd, NULL);
 	const char* strArgs = env->GetStringUTFChars(args, NULL);
@@ -613,12 +644,12 @@ JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIexcute
 	return 0;
 }
 
-JNIEXPORT jstring JNICALL Java_com_example_packetcapturetool_MainActivity_JNIgetErrorString(JNIEnv* env, jobject obj, jint err)
+JNIEXPORT jstring JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIgetErrorString(JNIEnv* env, jobject obj, jint err)
 {
 	return env->NewStringUTF(strerror(err));
 }
 
-JNIEXPORT jint JNICALL Java_com_example_packetcapturetool_MainActivity_JNIgetRootPermission(JNIEnv* env, jobject obj)
+JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIgetRootPermission(JNIEnv* env, jobject obj)
 {
 	//jint result = execl("/system/xbin/su", "su", NULL);
 	jint result = system("su");
