@@ -6,7 +6,7 @@
     <string name="chose_interface" translatable="false">网口名称：</string>
     <string name="choose_protocol" >协议类型：</string>
     <string name="capture_size">抓取长度：</string>
-    <string name="default_capture_size">256</string>
+    <string name="default_capture_size">65535</string>
     <string name="invalid_capture_size">抓取长度超出范围（24-65535）</string>
     <string name="save_file_name">保存文件名：</string>
     <string name="pcap_file_suffix">.pcap</string>

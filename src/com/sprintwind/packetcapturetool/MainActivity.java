@@ -14,7 +14,13 @@ import com.sprintwind.packetcapturetool.R;
 import com.sprintwind.packetcapturetool.ShellUtils.CommandResult;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -55,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
 
 	private ArrayAdapter<String> arradpInterface;
 	private ArrayAdapter<CharSequence> arradpProtocol;
+	private ConnectionChangeReceiver broadcastReceiver;
 
 	private Button btnStartCapture;
 	private Spinner spinInterface;
@@ -112,7 +119,7 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 		/* 加载网口列表 */
-		loadInterface();
+		//loadInterface();
 		
 		/* 加载协议列表 */
 		arradpProtocol = ArrayAdapter.createFromResource(this, R.array.protocol, android.R.layout.simple_list_item_single_choice);//new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_single_choice, R.array.protocol);
@@ -124,6 +131,9 @@ public class MainActivity extends ActionBarActivity {
 		
 		/* 创建应用目录 */
 		createAppDirectory();
+		
+		/* 注册网络变化通知 */
+		registerNetStateReceiver();
 		
     }
 
@@ -160,9 +170,11 @@ public class MainActivity extends ActionBarActivity {
 			
 			arradpInterface = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_single_choice, interfaceArr);
 			spinInterface.setAdapter(arradpInterface);
+			Toast.makeText(getApplicationContext(), "网口信息加载完成", Toast.LENGTH_SHORT).show();
 		}
 		else{
 			System.out.println("interfaceArray is null!");
+			Toast.makeText(getApplicationContext(), "没有可用网口信息！", Toast.LENGTH_SHORT).show();
 		}
     }
     
@@ -483,6 +495,52 @@ public class MainActivity extends ActionBarActivity {
 		
 		Log.v(LOG_TAG, "copy raw file "+rawFileId+" to "+dstPath+" success");
 		return ErrorCode.OK;
+	}
+	
+	/*
+	 * 手动注册网络状态变化。
+	 */
+	private void registerNetStateReceiver() {
+		broadcastReceiver = new ConnectionChangeReceiver();
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(android.net.ConnectivityManager.CONNECTIVITY_ACTION);
+		registerReceiver(broadcastReceiver, filter);
+	}
+	
+	/*
+	 * 处理网络状态变化的内部类
+	 */
+	public class ConnectionChangeReceiver extends BroadcastReceiver {
+
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			boolean isConnected = false;
+
+			ConnectivityManager connectivityManager = (ConnectivityManager) context
+					.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+			NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+			if (networkInfo != null) {
+				if(networkInfo.isConnected())
+				{
+					isConnected = true;
+				}
+				
+				Log.i(LOG_TAG, "--Network Type  = " + networkInfo.getTypeName());
+				Log.i(LOG_TAG, "--Network SubType  = " + networkInfo.getSubtypeName());
+				Log.i(LOG_TAG, "--Network State = " + networkInfo.getState());
+				
+			} 
+			
+			String networkStatus = isConnected?"连接":"断开";
+			Toast.makeText(getApplicationContext(), "网络连接已"+networkStatus+",重新加载网口信息...", Toast.LENGTH_SHORT).show();
+			
+			/* 网络连接发生变化后重新加载网卡信息 */
+			loadInterface();
+			
+		}
 	}
 	
 	public native String JNIgetInterfaces();
