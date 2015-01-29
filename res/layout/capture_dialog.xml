@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    style="@style/lnrlytStyle1"
+    >
+    <LinearLayout 
+        android:id="@+id/lnrlytCaptureStatistics"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/lnrlytStyle2"
+        >
+    <TextView
+	    android:id="@+id/txtvwCaptureAmount" 
+	    android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		style="@style/txtvwStyleBig2"
+		/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/lnrlytStopCapture"
+        android:layout_below="@id/lnrlytCaptureStatistics"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/lnrlytStyle1"
+        >
+    <Button
+        android:id="@+id/btnStopCapture"
+        android:layout_height="wrap_content" 
+		android:layout_width="fill_parent"
+		style="@style/btnStyleRed"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		/>
+    </LinearLayout>
+
+</RelativeLayout>
