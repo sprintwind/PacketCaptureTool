@@ -2,8 +2,8 @@
 <resources
 >
     <string-array name="protocol">
-        <item >ARP</item>
-        <item >IP</item>
         <item >ALL</item>
+        <item >IP</item>
+        <item >ARP</item>
     </string-array>
 </resources>

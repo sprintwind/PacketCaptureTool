@@ -3,16 +3,30 @@
     <string name="app_name" translatable="false">抓包精灵</string>
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
-    <string name="chose_interface" translatable="false">网口名称：</string>
-    <string name="choose_protocol" >协议类型：</string>
-    <string name="capture_size">抓取长度：</string>
+    <string name="action_share">分享</string>
+    <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，下载地址：http://www.baidu.com</string>
+    <string name="press_to_exit">再按一次返回键退出程序</string>
+    <string name="all_interfaces">所有网口</string>
+    <string name="chose_interface" translatable="false">网口名称</string>
+    <string name="choose_protocol" >协议类型</string>
+    <string name="capture_size">抓取长度</string>
+    <string name="click_to_chose">点击这里选择</string>
+    <string name="click_to_set">点击这里设置</string>
+    <string name="havent_chose">沒有选择</string>
+    <string name="empty_file_name">文件名不能为空</string>
+    <string name="regenerate_file_name">以当前时间重新生成文件名</string>
+    <string name="invalid_file_name">文件名不能包含^，/，\,>,*,?,|等特殊字符</string>
+    <string name="file_exits">文件已存在，是否覆盖？</string>
+    <string name="starting_capture">正在启动抓包&#8230;</string>
+    <string name="capturing">正在抓包&#8230;</string>
     <string name="default_capture_size">65535</string>
-    <string name="invalid_capture_size">抓取长度超出范围（24-65535）</string>
-    <string name="save_file_name">保存文件名：</string>
+    <string name="invalid_capture_size">抓取长度超出范围（24&#8211;65535）</string>
+    <string name="save_file_name">保存文件名</string>
     <string name="pcap_file_suffix">.pcap</string>
     <string name="start_capture" translatable="false">开始抓包</string>
     <string name="stop_capture" translatable="false">停止抓包</string>
-    <string name="capture_started" translatable="false">开始抓包...</string>
+    <string name="stopping_capture">正在停止抓包&#8230;</string>
+    <string name="capture_started" translatable="false">开始抓包&#8230;</string>
     <string name="capture_stopped" translatable="false">抓包已停止，抓包文件保存在：</string>
     <string name="excute_failed" translatable="false">执行失败</string>
     <string name="title_prompt" translatable="false">提示</string>

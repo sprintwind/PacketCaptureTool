@@ -1,8 +1,6 @@
 package com.sprintwind.packetcapturetool;
 
 
-
-
 import java.io.BufferedReader; 
 import java.io.DataOutputStream; 
 import java.io.IOException; 
@@ -163,6 +161,7 @@ public class ShellUtils {
             result = process.waitFor(); 
             // get command result 
             if (isNeedResultMsg) { 
+            	result = 0;
                 successMsg = new StringBuilder(); 
                 errorMsg = new StringBuilder(); 
                 successResult = new BufferedReader(new InputStreamReader(process.getInputStream())); 

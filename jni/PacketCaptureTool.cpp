@@ -85,6 +85,38 @@ void init_file_header(struct pcap_file_header* pfile_hdr, int cap_len)
 }
 
 /*
+ * 向stats_file中写入stats
+ */
+int write_statistics(char* stats_file, int stats)
+{
+	int writelen;
+	char intArr[MAX_INTEGER_LEN] = {0};
+
+	if(NULL == stats_file)
+	{
+		return -1;
+	}
+
+	FILE* file = fopen(stats_file, "w+");
+	if(NULL == file)
+	{
+		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "open statistics file %s failed, %s", stats_file, strerror(errno));
+		return errno;
+	}
+
+	sprintf(intArr, "%d", stats);
+	writelen = fwrite(intArr, sizeof(char), MAX_INTEGER_LEN, file);
+	if(writelen <= 0)
+	{
+		__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics fail, %s", strerror(errno));
+		return errno;
+	}
+
+	fclose(file);
+	return 0;
+}
+
+/*
  * 抓包线程
  */
 void* capture_thread(void* arg)
@@ -158,6 +190,13 @@ void* capture_thread(void* arg)
 
 	__android_log_print(ANDROID_LOG_INFO, "sprintwind", "capture stopped, %d packets captured, saved to file %s\n", total_capture_count, file_name);
 
+	char stats_file[FILE_NAME_LEN] = {0};
+
+	sprintf(stats_file, "%s/%s", stats_file_dir, STATS_FILE);
+
+	/* 每次结束时，将抓包统计值清零 */
+	write_statistics(stats_file, 0);
+
 	/* 释放资源 */
 	close(sock_fd);
 	free(buffer);
@@ -166,37 +205,6 @@ void* capture_thread(void* arg)
 	return NULL;
 }
 
-/*
- * 向stats_file中写入stats
- */
-int write_statistics(char* stats_file, int stats)
-{
-	int writelen;
-	char intArr[MAX_INTEGER_LEN] = {0};
-
-	if(NULL == stats_file)
-	{
-		return -1;
-	}
-
-	FILE* file = fopen(stats_file, "w+");
-	if(NULL == file)
-	{
-		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "open statistics file %s failed, %s", stats_file, strerror(errno));
-		return errno;
-	}
-
-	sprintf(intArr, "%d", stats);
-	writelen = fwrite(intArr, sizeof(char), MAX_INTEGER_LEN, file);
-	if(writelen <= 0)
-	{
-		__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics fail, %s", strerror(errno));
-		return errno;
-	}
-
-	fclose(file);
-	return 0;
-}
 
 /*
  * 打印抓包状态线程
@@ -218,9 +226,7 @@ void* print_thread(void* arg)
 		sleep(1);
 	}
 
-	/* 抓包结束后，将统计值写为0 */
 	write_statistics(stats_file, 0);
-	__android_log_print(ANDROID_LOG_INFO, "sprintwind","write statistics to 0");
 
 	return NULL;
 }
@@ -248,7 +254,7 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 	}
 
 	/* 输入了设备则进行绑定 */
-	if(NULL != dev)
+	if((NULL != dev)&&(0 != memcmp("all", dev, 3)))
 	{
 		strncpy(interface.ifr_ifrn.ifrn_name, dev, IFNAMSIZ);
 		if( setsockopt(sock_fd, SOL_SOCKET, SO_BINDTODEVICE, &interface, sizeof(interface)) < 0)
@@ -327,6 +333,14 @@ int start_capture(char* dev, int proto, int cap_len, char* saveDir, char* saveFi
 		return -1;
 	}
 	*/
+
+	char stats_file[FILE_NAME_LEN] = {0};
+
+	sprintf(stats_file, "%s/%s", stats_file_dir, STATS_FILE);
+
+	/* 每次开始时，将抓包统计值清零 */
+	write_statistics(stats_file, 0);
+
 
 	if(0 != pthread_create(&thread_id, NULL, print_thread, NULL))
 	{
@@ -542,6 +556,8 @@ JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIsta
 		__android_log_print(ANDROID_LOG_INFO, "sprintwind", "create capture thread failed\n");
 		return -1;
 	}
+
+	return 0;
 }
 
 JNIEXPORT void JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIstopCapture(JNIEnv* env, jobject obj)
