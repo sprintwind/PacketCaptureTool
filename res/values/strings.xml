@@ -4,8 +4,10 @@
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="action_share">分享</string>
-    <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，下载地址：http://www.baidu.com</string>
+    <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，现在已经在小米应用商店上线了,在小米应用商店搜索"抓包"即可下载,赶快行动吧!</string>
     <string name="press_to_exit">再按一次返回键退出程序</string>
+    <string name="sdcard_not_exist">SD卡不存在,请插入SD卡后重试</string>
+    <string name="no_root_permission">您的手机还没有获得root权限，请先获取root权限</string>
     <string name="all_interfaces">所有网口</string>
     <string name="chose_interface" translatable="false">网口名称</string>
     <string name="choose_protocol" >协议类型</string>
@@ -28,6 +30,8 @@
     <string name="stopping_capture">正在停止抓包&#8230;</string>
     <string name="capture_started" translatable="false">开始抓包&#8230;</string>
     <string name="capture_stopped" translatable="false">抓包已停止，抓包文件保存在：</string>
+    <string name="capture_failed">开启抓包失败,请确保您的手机已经具有root权限,并且在应用弹出的获取root权限界面选择了允许</string>
+    <string name="stop_capture_failed">停止抓包失败,可能抓包没有成功开启,请勿频繁点击开始抓包按钮</string>
     <string name="excute_failed" translatable="false">执行失败</string>
     <string name="title_prompt" translatable="false">提示</string>
     <string name="get_root_permission_fail" translatable="false">获取root权限失败</string>

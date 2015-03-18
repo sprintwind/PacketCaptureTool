@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity {
 	private final String PCAP_FILE_SUFFIX = ".pcap";
 	private final String STATS_FILE = ".cap_stats";
 	private final String CAP_FILE_DIR = "packet_capture";
-	private final String LOG_TAG = "PacketCaptureTool";
+	private final String LOG_TAG = "sprintwind";
 	
 	private final String ITEM_IMAGE = "ItemImage";
 	private final String ITEM_TITLE = "ItemTitle";
@@ -138,23 +138,9 @@ public class MainActivity extends ActionBarActivity {
 		
 		handler = new Handler();
 		
-		/* 检查手机是否已经获得root权限 */
-		if(!is_root())
-		{
-			Toast.makeText(this, "您的手机还没有获得root权限，请先获取root权限", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		
 		/* 初始化相关路径 */
 		captoolDir = this.getApplicationContext().getFilesDir().getParentFile().getPath();
 		sdcardDir= android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-		
-		/* 检查内存卡是否存在 */
-		if( (sdcardDir == null)||!isFileExist(sdcardDir) )
-		{
-			Toast.makeText(this, "SD卡不存在,请插入SD卡后重试", Toast.LENGTH_SHORT).show();
-			return;
-		}
 		
 		/* 创建应用目录 */
 		createAppDirectory();
@@ -239,13 +225,13 @@ public class MainActivity extends ActionBarActivity {
 		if(null != interfaceStr)
 		{
 			interfaceStr = getString(R.string.all_interfaces)+"|"+interfaceStr;
-			System.out.println("interfaceStr:"+interfaceStr);
+			Log.i(LOG_TAG, "interfaceStr:"+interfaceStr);
 			strArrIfName = interfaceStr.split("\\|");
 			
 			//Toast.makeText(getApplicationContext(), "网口信息加载完成", Toast.LENGTH_SHORT).show();
 		}
 		else{
-			System.out.println("interfaceArray is null!");
+			Log.e(LOG_TAG, "interfaceArray is null!");
 			strArrIfName = new String[]{getString(R.string.all_interfaces)};
 			Toast.makeText(getApplicationContext(), "没有可用网口信息！", Toast.LENGTH_SHORT).show();
 		}
@@ -267,7 +253,7 @@ public class MainActivity extends ActionBarActivity {
      */
     public String generateFileNameByNowTime()
     {
-    	SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CHINA);
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss", Locale.CHINA);
 		return format.format(new Date());
     }
     
@@ -280,7 +266,8 @@ public class MainActivity extends ActionBarActivity {
     	 boolean sdCardExist = Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
     	 if(!sdCardExist)
     	 {
-    		 Toast.makeText(this, "请插入外部SD存储卡", Toast.LENGTH_SHORT).show();
+    		 //Toast.makeText(this, "请插入外部SD存储卡", Toast.LENGTH_SHORT).show();
+    		 Log.e(LOG_TAG, "SD card absent, will not create application directory!");
     		 return;
     	 }
     	 
@@ -426,6 +413,24 @@ public class MainActivity extends ActionBarActivity {
 		public void onClick(View arg0) {
 			// TODO Auto-generated method stub
 			
+				/* 检查手机是否已经获得root权限 */
+				if(!is_root())
+				{
+					Toast.makeText(getApplicationContext(), getString(R.string.no_root_permission), Toast.LENGTH_SHORT).show();
+					Log.e(LOG_TAG, "the cellphone has no root permision");
+					return;
+				}
+			
+				/* 检查内存卡是否存在 */
+				if( (sdcardDir == null)||!isFileExist(sdcardDir) )
+				{
+					Toast.makeText(getApplicationContext(), getString(R.string.sdcard_not_exist), Toast.LENGTH_SHORT).show();
+					Log.e(LOG_TAG, "SD card does not exist");
+					return;
+				}
+				
+				createAppDirectory();
+				
 				/* 检查网口是否已选择 */
 				if(getItemNameOfListView(ListItemCol.COL_IFNAME).equals(getString(R.string.click_to_chose)+getString(R.string.chose_interface)))
 				{
@@ -556,7 +561,7 @@ public class MainActivity extends ActionBarActivity {
 					}
 					BufferedReader br = new BufferedReader(new FileReader(file));
 					capture_stats = br.readLine();
-					System.out.println("stats:"+capture_stats);
+					Log.i(LOG_TAG, "stats:"+capture_stats);
 					//capture_count = Integer.parseInt(stats);
 					br.close();
 					handler.post(new UpdateThread());
@@ -606,7 +611,8 @@ public class MainActivity extends ActionBarActivity {
 					
 					if(null!=cmdResult && cmdResult.result < 0)
 					{
-						Toast.makeText(getApplicationContext(), "抓包失败，"+cmdResult.errorMsg, Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), getString(R.string.capture_failed), Toast.LENGTH_LONG).show();
+						Log.e(LOG_TAG, "start capture failed, error msg:"+cmdResult.errorMsg);
 						btnStartCapture.setText(getString(R.string.start_capture));
 						break;
 					}
@@ -623,7 +629,7 @@ public class MainActivity extends ActionBarActivity {
 					break;
 				case STATUS_STOPPING:
 					btnStopCapture.setText(getString(R.string.stopping_capture));
-					Log.i("sprintwind", "stopping...");
+					Log.i(LOG_TAG, "stopping...");
 					
 					try {
 						Thread.sleep(THREAD_SLEEP_TIME, 0);
@@ -634,8 +640,8 @@ public class MainActivity extends ActionBarActivity {
 					
 					if(cmdResult.result < 0)
 					{
-						Toast.makeText(getApplicationContext(), "停止抓包失败,"+cmdResult.errorMsg, Toast.LENGTH_SHORT).show();
-						Log.e("sprintwind", "stop failed");
+						Toast.makeText(getApplicationContext(), getString(R.string.stop_capture_failed), Toast.LENGTH_LONG).show();
+						Log.e(LOG_TAG, "stop capture failed, error msg:"+cmdResult.errorMsg);
 					}
 					else
 					{
@@ -731,13 +737,13 @@ public class MainActivity extends ActionBarActivity {
 	    boolean res = false;
 
 	    try{ 
-	        if ((!new File("/system/bin/su").exists()) && 
-	            (!new File("/system/xbin/su").exists())){
-	        res = false;
-	    } 
-	    else {
-	        res = true;
-	    };
+	    	if ((!new File("/system/bin/su").exists()) && 
+	    			(!new File("/system/xbin/su").exists())){
+	    		res = false;
+	    	} 
+	    	else {
+	    		res = true;
+	    	};
 	    } 
 	    catch (Exception e) {  
 
@@ -825,7 +831,7 @@ public class MainActivity extends ActionBarActivity {
 			return ErrorCode.ERR_FILE_NOT_EXIST;
 		}
 		
-		Log.v(LOG_TAG, "copy raw file "+rawFileId+" to "+dstPath+" success");
+		Log.i(LOG_TAG, "copy raw file "+rawFileId+" to "+dstPath+" success");
 		return ErrorCode.OK;
 	}
 	
