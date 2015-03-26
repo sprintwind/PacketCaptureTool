@@ -1088,8 +1088,9 @@ containing a value of this type.
         public static final int ic_action_goto_light=0x7f02005a;
         public static final int ic_launcher=0x7f02005b;
         public static final int ic_launcher_packetcapturetool=0x7f02005c;
-        public static final int textview_selecter=0x7f02005d;
-        public static final int txtvwbckgrnd=0x7f02005e;
+        public static final int ic_launcher_red=0x7f02005d;
+        public static final int textview_selecter=0x7f02005e;
+        public static final int txtvwbckgrnd=0x7f02005f;
     }
     public static final class id {
         public static final int ItemImage=0x7f060049;

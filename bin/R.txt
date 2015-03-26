@@ -243,8 +243,9 @@ int drawable ic_action_goto_dark 0x7f020059
 int drawable ic_action_goto_light 0x7f02005a
 int drawable ic_launcher 0x7f02005b
 int drawable ic_launcher_packetcapturetool 0x7f02005c
-int drawable textview_selecter 0x7f02005d
-int drawable txtvwbckgrnd 0x7f02005e
+int drawable ic_launcher_red 0x7f02005d
+int drawable textview_selecter 0x7f02005e
+int drawable txtvwbckgrnd 0x7f02005f
 int id ItemImage 0x7f060049
 int id ItemText 0x7f060048
 int id ItemTitle 0x7f060047
