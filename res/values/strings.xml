@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name" translatable="false">抓包精灵</string>
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -10,7 +11,7 @@
     <string name="no_root_permission">您的手机还没有获得root权限，请先获取root权限</string>
     <string name="all_interfaces">所有网口</string>
     <string name="chose_interface" translatable="false">网口名称</string>
-    <string name="choose_protocol" >协议类型</string>
+    <string name="choose_protocol">协议类型</string>
     <string name="capture_size">抓取长度</string>
     <string name="click_to_chose">点击这里选择</string>
     <string name="click_to_set">点击这里设置</string>
@@ -36,5 +37,6 @@
     <string name="title_prompt" translatable="false">提示</string>
     <string name="get_root_permission_fail" translatable="false">获取root权限失败</string>
     <string name="confirm" translatable="false">确定</string>
+    <string name="title_activity_rsplash">RSplashActivity</string>
 
 </resources>

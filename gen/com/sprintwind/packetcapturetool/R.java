@@ -1093,9 +1093,9 @@ containing a value of this type.
         public static final int txtvwbckgrnd=0x7f02005f;
     }
     public static final class id {
-        public static final int ItemImage=0x7f060049;
-        public static final int ItemText=0x7f060048;
-        public static final int ItemTitle=0x7f060047;
+        public static final int ItemImage=0x7f06004b;
+        public static final int ItemText=0x7f06004a;
+        public static final int ItemTitle=0x7f060049;
         public static final int action_bar=0x7f06001c;
         public static final int action_bar_activity_content=0x7f060015;
         public static final int action_bar_container=0x7f06001b;
@@ -1107,13 +1107,15 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_share=0x7f06004a;
+        public static final int action_settings=0x7f06004d;
+        public static final int action_share=0x7f06004c;
         public static final int activity_chooser_view_content=0x7f060025;
+        public static final int adsRl=0x7f060043;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
         public static final int btnReGenerateFileName=0x7f060040;
-        public static final int btnStartCapture=0x7f060041;
-        public static final int btnStopCapture=0x7f060045;
+        public static final int btnStartCapture=0x7f060042;
+        public static final int btnStopCapture=0x7f060047;
         public static final int checkbox=0x7f06002e;
         public static final int collapseActionView=0x7f06000d;
         public static final int default_activity_button=0x7f060028;
@@ -1133,9 +1135,10 @@ containing a value of this type.
         public static final int image_expand=0x7f060027;
         public static final int listMode=0x7f060001;
         public static final int list_item=0x7f06002a;
-        public static final int lnrlytCaptureStatistics=0x7f060042;
-        public static final int lnrlytListViewText=0x7f060046;
-        public static final int lnrlytStopCapture=0x7f060044;
+        public static final int lnrlytButton=0x7f060041;
+        public static final int lnrlytCaptureStatistics=0x7f060044;
+        public static final int lnrlytListViewText=0x7f060048;
+        public static final int lnrlytStopCapture=0x7f060046;
         public static final int lstVwSettings=0x7f06003d;
         public static final int middle=0x7f060012;
         public static final int never=0x7f060009;
@@ -1164,7 +1167,7 @@ containing a value of this type.
         public static final int title=0x7f06002c;
         public static final int top_action_bar=0x7f060020;
         public static final int tvFileName=0x7f06003e;
-        public static final int txtvwCaptureAmount=0x7f060043;
+        public static final int txtvwCaptureAmount=0x7f060045;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
         public static final int withText=0x7f06000c;
@@ -1220,12 +1223,14 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int capture_dialog=0x7f030019;
-        public static final int listview_item_layout=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int activity_rsplash=0x7f030019;
+        public static final int capture_dialog=0x7f03001a;
+        public static final int listview_item_layout=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
+        public static final int rsplash=0x7f0e0001;
     }
     public static final class raw {
         public static final int cap_tool=0x7f050000;
@@ -1306,6 +1311,7 @@ containing a value of this type.
         public static final int stop_capture=0x7f0b0027;
         public static final int stop_capture_failed=0x7f0b002c;
         public static final int stopping_capture=0x7f0b0028;
+        public static final int title_activity_rsplash=0x7f0b0031;
         public static final int title_prompt=0x7f0b002e;
     }
     public static final class style {

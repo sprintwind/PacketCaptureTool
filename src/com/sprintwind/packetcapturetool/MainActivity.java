@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
+import com.baidu.mobads.SplashAd;
+import com.baidu.mobads.SplashAdListener;
+import com.baidu.mobads.SplashAd.SplashType;
 import com.sprintwind.packetcapturetool.R;
 import com.sprintwind.packetcapturetool.ShellUtils.CommandResult;
 
@@ -47,6 +50,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -120,11 +124,14 @@ public class MainActivity extends ActionBarActivity {
 	private boolean capture = false;
 	private int updateCount = 0;
 	private long exitTime = 0;
+	
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         
         btnStartCapture = (Button) findViewById(R.id.btnStartCapture);
 		btnStartCapture.setOnClickListener((OnClickListener) new OnBtnStartCaptureClickListener());
