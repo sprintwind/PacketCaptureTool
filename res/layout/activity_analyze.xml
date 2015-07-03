@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    tools:context="com.sprintwind.packetcapturetool.AnalyzeActivity"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_margin="5dp"
+        >
+        <EditText 
+	        android:id="@+id/edttxtFile"
+	        android:inputType="text"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+        />
+    	<Button 
+	        android:id="@+id/bttnBrowse"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="5"
+	        style="@style/btnStyleRedBorder"
+	        android:layout_marginBottom="10dp"
+	        android:text="@string/browse"
+        ></Button>
+    </LinearLayout>
+    
+    <Button 
+        android:id="@+id/bttnAnalyze"
+        android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    style="@style/btnStyleRed"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
+	    android:layout_margin="5dp"
+	    android:text="@string/analyze"
+        />
+    
+    <ProgressBar 
+        android:id="@+id/pgsbAnalyzing"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge" 
+        android:layout_width="wrap_content"   
+        android:layout_height="wrap_content"  
+        android:visibility="gone"
+        />
+    
+</LinearLayout>

@@ -2,20 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" 
-    style="@style/lnrlytStyle1"
+    style="@style/lnrlytStyleCaptureDlg"
     >
     <LinearLayout 
         android:id="@+id/lnrlytCaptureStatistics"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        style="@style/lnrlytStyle2"
+        style="@style/lnrlytStyleCaptureDlg"
         >
     <TextView
 	    android:id="@+id/txtvwCaptureAmount" 
 	    android:layout_height="wrap_content" 
 		android:layout_width="fill_parent" 
-		style="@style/txtvwStyleBig2"
+		style="@style/txtvwStyleCaptureAmount"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
 		/>
     </LinearLayout>
     
@@ -25,7 +27,7 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        style="@style/lnrlytStyle1"
+        style="@style/lnrlytStyleCaptureDlg"
         >
     <Button
         android:id="@+id/btnStopCapture"

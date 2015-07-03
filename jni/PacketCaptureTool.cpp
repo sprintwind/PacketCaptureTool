@@ -17,6 +17,9 @@
 #include <linux/if_packet.h>
 #include <pthread.h>
 #include <android/log.h>
+
+#include "pcap_struct.h"
+
 #define KEY_ESC 27
 #define MAX_INTERFACE_NUM 16
 #define MAX_INTEGER_LEN 10
@@ -28,27 +31,10 @@
 #define CAP_FILE_DIR "packet_capture"
 #define STATS_FILE ".cap_stats"
 #define PCAP_FILE_SUFFIX "pcap"
-#define PCAP_FILE_HDR_MAGIC 0xa1b2c3d4
-#define PKT_HDR_LEN sizeof(struct pcap_pkthdr)
-#define PKT_MAX_LEN 65535
+
 #define BUFF_BKT_CNT_MAX 100
 #define BUFF_SIZE ((BUFF_BKT_CNT_MAX)*(PKT_HDR_LEN+PKT_MAX_LEN))
 
-struct pcap_file_header {
-        u_int magic;
-        u_short version_major;
-        u_short version_minor;
-        int thiszone;     /* gmt to local correction */
-        u_int sigfigs;    /* accuracy of timestamps */
-        u_int snaplen;    /* max length saved portion of each pkt */
-        u_int linktype;   /* data link type (LINKTYPE_*) */
-};
-
-struct pcap_pkthdr {
-        struct timeval ts;      /* time stamp */
-        u_int caplen;     /* length of portion present */
-        u_int len;        /* length this packet (off wire) */
-};
 
 int capture = 1;
 char file_name[FILE_NAME_LEN] = {0};
@@ -593,7 +579,7 @@ JNIEXPORT jint JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIget
 	return -1;
 }
 
-JNIEXPORT jstring JNICALL Java_com_sprintwind_packetcapturetool_MainActivity_JNIgetInterfaces(JNIEnv* env, jobject obj)
+JNIEXPORT jstring JNICALL Java_com_sprintwind_packetcapturetool_CaptureActivity_JNIgetInterfaces(JNIEnv* env, jobject obj)
 {
 	int sock_fd;
 	int if_len;

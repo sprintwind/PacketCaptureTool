@@ -87,7 +87,8 @@ obj/local/armeabi/objs/PacketCaptureTool/PacketCaptureTool.o: \
  /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/linux/filter.h \
  /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/pthread.h \
  /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sched.h \
- /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h
+ /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h \
+ jni/pcap_struct.h
 
 /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/jni.h:
 
@@ -264,3 +265,5 @@ obj/local/armeabi/objs/PacketCaptureTool/PacketCaptureTool.o: \
 /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sched.h:
 
 /home/sprintwind/Android/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
+
+jni/pcap_struct.h:

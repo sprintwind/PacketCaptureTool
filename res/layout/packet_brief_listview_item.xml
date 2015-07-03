@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/lnrlytStylePacketBrief"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    >
+	    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/txtvwStylePacketBriefDate"
+                android:text="@string/time"
+                />
+	        <TextView 
+		        android:id="@+id/PacketDate"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        style="@style/txtvwStylePacketBriefDate"
+		        />
+	    </LinearLayout>
+	    
+        <LinearLayout
+            android:baselineAligned="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <LinearLayout 
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView 
+	                android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		        	style="@style/txtvwStylePacketBriefProtocol"
+		        	android:text="@string/protocol"/>
+	            <TextView 
+			        android:id="@+id/PacketProtocol"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        style="@style/txtvwStylePacketBriefProtocol"
+			        />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+	            <TextView 
+	                android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		        	style="@style/txtvwStylePacketBriefProtocol"
+		        	android:text="@string/packet_length"/>
+			    <TextView 
+			        android:id="@+id/PacketLength"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        style="@style/txtvwStylePacketBriefProtocol"
+			        />
+		    </LinearLayout>
+        </LinearLayout>
+        
+	</LinearLayout>
+	
+    <View
+	    android:layout_width="fill_parent"  
+	    android:layout_height="1px"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:background="?android:attr/listDivider"  
+		/> 
+       
+       <LinearLayout 
+            android:baselineAligned="false"
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    >
+
+           <TextView 
+		        android:id="@+id/PacketSrcIp"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="3"
+		        style="@style/txtvwStylePacketBriefIP"
+		        />
+           
+           <TextView 
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
+               style="@style/txtvwStylePacketBriefArrow"
+               android:text="@string/arrow"/>
+           
+		    <TextView 
+		        android:id="@+id/PacketDstIp"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="3"
+		        style="@style/txtvwStylePacketBriefIP"
+		        />
+	    
+       </LinearLayout>
+	    
+</LinearLayout>

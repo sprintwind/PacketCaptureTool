@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.sprintwind.packetcapturetool.PacketDetailActivity" >
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_weight="2"
+        android:orientation="vertical"
+        >
+        
+        <LinearLayout 
+            android:id="@+id/lnrlytPacketLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+        </LinearLayout>
+        
+    </ScrollView>
+    
+    <View  
+	   android:layout_width="fill_parent"  
+	   android:layout_height="1dp" 
+	   android:background="?android:attr/listDivider"  
+	/> 
+    
+    <ScrollView 
+        android:baselineAligned="false"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="3"
+        android:background="@color/transparent_background"
+        android:orientation="horizontal"
+        >
+        
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <TextView 
+	            android:id="@+id/txtvwPacketCharData"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            style="@style/txtvwStylePacketRawData"
+	            android:typeface="monospace"
+	            />
+			<TextView 
+	            android:id="@+id/txtvwPacketStringData"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            style="@style/txtvwStylePacketRawData"
+	            />
+        </LinearLayout>
+	        
+	</ScrollView>
+    
+</LinearLayout>

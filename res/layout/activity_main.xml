@@ -1,90 +1,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnrlytMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/lnrlytStyle1"
     tools:context="com.sprintwind.packetcapturetool.MainActivity" >
     
-
-    <ListView 
-        android:id="@+id/lstVwSettings"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+    <RelativeLayout 
+           android:id="@+id/appx_banner_container" 
+           android:layout_width="match_parent" 
+           android:layout_height="wrap_content" 
+           >
+   	</RelativeLayout>
     
-   <!-- 保存文件名 -->
-   <LinearLayout 
-        android:orientation="vertical"
+    <fragment
+        android:id="@+id/frgmntCapture"
+        android:name="com.sprintwind.packetcapturetool.CaptureActivity"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/lnrlytStyle2"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        >
-   <TextView 
-	       android:layout_width="fill_parent"
-	       android:layout_height="wrap_content"
-	       android:text="@string/save_file_name"
-	       style="@style/txtvwStyleBig2"
-	       android:id="@+id/tvFileName" >
-   </TextView>
-   		<LinearLayout 
-	        android:orientation="horizontal"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        style="@style/lnrlytStyle2"
-	         >
-		   <EditText 
-		       android:layout_width="wrap_content"
-		       android:layout_weight="5"
-		       android:layout_height="wrap_content"
-		       android:inputType="textCapCharacters"
-		       android:textAlignment="center"
-		       android:id="@+id/etFileName" >
-		   </EditText>
-		    <TextView 
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:layout_weight="1"
-		       android:text="@string/pcap_file_suffix" >
-		    </TextView>
-	    </LinearLayout>
-	    
-   		<Button 
-   		    android:id="@+id/btnReGenerateFileName"
-   		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    style="@style/btnStyleDarkcyan"
-		    android:layout_marginLeft="10dp"
-		    android:layout_marginRight="10dp"
-			android:layout_marginTop="10dp"
-			android:layout_marginBottom="10dp"
-   		    android:text="@string/regenerate_file_name"
-   		    />
-   </LinearLayout>
-   
-   <LinearLayout 
-        android:id="@+id/lnrlytButton"
-        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+         />
+    
+    <fragment
+        android:id="@+id/frgmntAnalyze"
+        android:name="com.sprintwind.packetcapturetool.AnalyzeActivity"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/lnrlytStyle1"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        >
-   <Button 
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      style="@style/btnStyleRed"
-      android:layout_marginLeft="10dp"
-      android:layout_marginRight="10dp"
-	  android:layout_marginTop="10dp"
-	  android:layout_marginBottom="10dp"
-      android:id="@+id/btnStartCapture"
-      android:text="@string/start_capture"/>
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+        />
+    
+    <View  
+	   android:layout_width="fill_parent"  
+	   android:layout_height="1px" 
+	   android:background="?android:attr/listDivider"  
+	/> 
+    
+    <RadioGroup  
+        android:id="@+id/rdgrpBottomMenu"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" 
+        android:layout_weight="8.9"
+        android:orientation="horizontal" >  
+  
+        <RadioButton  
+            android:id="@+id/rdbttnCapture"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_action_capture"
+            style="@style/rdbtnStyleRed"
+            android:checked="true"  
+            android:text="@string/capture" />  
+  
+        <RadioButton  
+            android:id="@+id/rdbttnAnalyze"  
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_action_analyze"
+            style="@style/rdbtnStyleRed"
+            android:text="@string/analyze" />  
    
-   </LinearLayout>
+    </RadioGroup>
    
-	
 </LinearLayout>

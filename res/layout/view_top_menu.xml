@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+        >
+        <ToggleButton 
+           android:id="@+id/tgglbttnCapture"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:textOn="@string/capture"
+           android:textOff="@string/capture"
+           android:checked="true"
+           android:text="@string/capture"/>
+         
+       <ToggleButton 
+           android:id="@+id/tgglbttnAnalyze"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:textOn="@string/analyze"
+           android:textOff="@string/analyze"
+           android:text="@string/analyze"
+           android:checked="false"
+           />
+	</LinearLayout>
+	
+</ScrollView>
+
+    

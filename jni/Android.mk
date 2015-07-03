@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := PacketCaptureTool.cpp
 
 LOCAL_LDLIBS    := -llog
 
+
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)

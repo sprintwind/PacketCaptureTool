@@ -460,6 +460,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int logo=0x7f01002d;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarButtonStyle=0x7f01006f;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarStyle=0x7f01006e;
         /**  The type of navigation to use. 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -861,12 +869,30 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f070002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080005;
+        public static final int abc_search_url_text_holo=0x7f080016;
         public static final int abc_search_url_text_normal=0x7f080000;
         public static final int abc_search_url_text_pressed=0x7f080002;
         public static final int abc_search_url_text_selected=0x7f080001;
+        public static final int black=0x7f080008;
+        public static final int black_overlay=0x7f080015;
         public static final int blue=0x7f080004;
+        public static final int color_selector_crimson=0x7f080017;
+        public static final int crimson=0x7f080013;
+        public static final int darkgray=0x7f08000a;
+        public static final int dodgerblue=0x7f080006;
+        public static final int floralwhite=0x7f08000d;
+        public static final int gainsboro=0x7f08000e;
+        public static final int ghostwhite=0x7f080011;
+        public static final int gray=0x7f080009;
+        public static final int honeydew=0x7f080010;
+        public static final int lavender=0x7f08000f;
+        public static final int lightgray=0x7f08000b;
+        public static final int midnightblue=0x7f080005;
+        public static final int orangered=0x7f080007;
+        public static final int palevioletred=0x7f080014;
         public static final int transparent_background=0x7f080003;
+        public static final int white=0x7f08000c;
+        public static final int whitegray=0x7f080012;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1082,20 +1108,31 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int goto_icon_selecter=0x7f020057;
-        public static final int ic_action_goto=0x7f020058;
-        public static final int ic_action_goto_dark=0x7f020059;
-        public static final int ic_action_goto_light=0x7f02005a;
-        public static final int ic_launcher=0x7f02005b;
-        public static final int ic_launcher_packetcapturetool=0x7f02005c;
-        public static final int ic_launcher_red=0x7f02005d;
-        public static final int textview_selecter=0x7f02005e;
-        public static final int txtvwbckgrnd=0x7f02005f;
+        public static final int bckgrnd_selector_blue=0x7f020057;
+        public static final int goto_icon_selecter=0x7f020058;
+        public static final int ic_action_analyze=0x7f020059;
+        public static final int ic_action_capture=0x7f02005a;
+        public static final int ic_action_goto=0x7f02005b;
+        public static final int ic_action_goto_dark=0x7f02005c;
+        public static final int ic_action_goto_light=0x7f02005d;
+        public static final int ic_launcher=0x7f02005e;
+        public static final int ic_launcher_packetcapturetool=0x7f02005f;
+        public static final int ic_launcher_red=0x7f020060;
+        public static final int lstvw_bckgrnd_selector=0x7f020061;
+        public static final int red_black_font_color_selector=0x7f020062;
+        public static final int red_border_button_selector=0x7f020063;
+        public static final int red_button_selector=0x7f020064;
+        public static final int txtvwbckgrnd=0x7f020065;
     }
     public static final class id {
-        public static final int ItemImage=0x7f06004b;
-        public static final int ItemText=0x7f06004a;
-        public static final int ItemTitle=0x7f060049;
+        public static final int ItemImage=0x7f06005a;
+        public static final int ItemText=0x7f060059;
+        public static final int ItemTitle=0x7f060058;
+        public static final int PacketDate=0x7f06005b;
+        public static final int PacketDstIp=0x7f06005f;
+        public static final int PacketLength=0x7f06005d;
+        public static final int PacketProtocol=0x7f06005c;
+        public static final int PacketSrcIp=0x7f06005e;
         public static final int action_bar=0x7f06001c;
         public static final int action_bar_activity_content=0x7f060015;
         public static final int action_bar_container=0x7f06001b;
@@ -1107,15 +1144,17 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f06004d;
-        public static final int action_share=0x7f06004c;
+        public static final int action_settings=0x7f06008a;
+        public static final int action_share=0x7f06008b;
         public static final int activity_chooser_view_content=0x7f060025;
-        public static final int adsRl=0x7f060043;
         public static final int always=0x7f06000b;
+        public static final int appx_banner_container=0x7f060047;
         public static final int beginning=0x7f060011;
-        public static final int btnReGenerateFileName=0x7f060040;
-        public static final int btnStartCapture=0x7f060042;
-        public static final int btnStopCapture=0x7f060047;
+        public static final int btnReGenerateFileName=0x7f060044;
+        public static final int btnStartCapture=0x7f060045;
+        public static final int btnStopCapture=0x7f060056;
+        public static final int bttnAnalyze=0x7f06003f;
+        public static final int bttnBrowse=0x7f06003e;
         public static final int checkbox=0x7f06002e;
         public static final int collapseActionView=0x7f06000d;
         public static final int default_activity_button=0x7f060028;
@@ -1123,30 +1162,41 @@ containing a value of this type.
         public static final int disableHome=0x7f060008;
         public static final int dropdown=0x7f06000f;
         public static final int edit_query=0x7f060031;
+        public static final int edttxtFile=0x7f06003d;
         public static final int end=0x7f060013;
-        public static final int etFileName=0x7f06003f;
+        public static final int etFileName=0x7f060043;
         public static final int expand_activities_button=0x7f060026;
         public static final int expanded_menu=0x7f06002d;
+        public static final int frgmntAnalyze=0x7f060049;
+        public static final int frgmntCapture=0x7f060048;
+        public static final int frmlytBottom=0x7f060069;
         public static final int home=0x7f060014;
         public static final int homeAsUp=0x7f060005;
         public static final int icon=0x7f06002b;
         public static final int ifRoom=0x7f06000a;
         public static final int image_default=0x7f060029;
         public static final int image_expand=0x7f060027;
+        public static final int imgvwBottomMenu=0x7f060051;
         public static final int listMode=0x7f060001;
         public static final int list_item=0x7f06002a;
-        public static final int lnrlytButton=0x7f060041;
-        public static final int lnrlytCaptureStatistics=0x7f060044;
-        public static final int lnrlytListViewText=0x7f060048;
-        public static final int lnrlytStopCapture=0x7f060046;
-        public static final int lstVwSettings=0x7f06003d;
+        public static final int lnrlytCaptureStatistics=0x7f060053;
+        public static final int lnrlytListViewText=0x7f060057;
+        public static final int lnrlytMain=0x7f060046;
+        public static final int lnrlytPacketLayer=0x7f06004e;
+        public static final int lnrlytStopCapture=0x7f060055;
+        public static final int lstVwSettings=0x7f060041;
+        public static final int lstvwBrief=0x7f06004d;
         public static final int middle=0x7f060012;
         public static final int never=0x7f060009;
         public static final int none=0x7f060010;
         public static final int normal=0x7f060000;
+        public static final int pgsbAnalyzing=0x7f060040;
         public static final int progress_circular=0x7f060018;
         public static final int progress_horizontal=0x7f060019;
         public static final int radio=0x7f060030;
+        public static final int rdbttnAnalyze=0x7f06004c;
+        public static final int rdbttnCapture=0x7f06004b;
+        public static final int rdgrpBottomMenu=0x7f06004a;
         public static final int search_badge=0x7f060033;
         public static final int search_bar=0x7f060032;
         public static final int search_button=0x7f060034;
@@ -1164,10 +1214,54 @@ containing a value of this type.
         public static final int split_action_bar=0x7f06001e;
         public static final int submit_area=0x7f06003a;
         public static final int tabMode=0x7f060002;
+        public static final int tgglbttnAnalyze=0x7f060085;
+        public static final int tgglbttnCapture=0x7f060084;
         public static final int title=0x7f06002c;
         public static final int top_action_bar=0x7f060020;
-        public static final int tvFileName=0x7f06003e;
-        public static final int txtvwCaptureAmount=0x7f060045;
+        public static final int tvFileName=0x7f060042;
+        public static final int txtVwBottomMenu=0x7f060052;
+        public static final int txtvwArpDestHardwareAddress=0x7f060067;
+        public static final int txtvwArpDestIpAddress=0x7f060068;
+        public static final int txtvwArpHardwareAddressLen=0x7f060062;
+        public static final int txtvwArpHardwareType=0x7f060060;
+        public static final int txtvwArpOperation=0x7f060064;
+        public static final int txtvwArpProtocolAddressLen=0x7f060063;
+        public static final int txtvwArpProtocolType=0x7f060061;
+        public static final int txtvwArpSourceHardwareAddress=0x7f060065;
+        public static final int txtvwArpSourceIpAddress=0x7f060066;
+        public static final int txtvwCaptureAmount=0x7f060054;
+        public static final int txtvwEtherDestMac=0x7f06006a;
+        public static final int txtvwEtherProto=0x7f06006c;
+        public static final int txtvwEtherSourceMac=0x7f06006b;
+        public static final int txtvwIpChecksum=0x7f060076;
+        public static final int txtvwIpDestIP=0x7f060078;
+        public static final int txtvwIpFlags=0x7f060072;
+        public static final int txtvwIpHeaderLength=0x7f06006e;
+        public static final int txtvwIpIdentification=0x7f060071;
+        public static final int txtvwIpOffset=0x7f060073;
+        public static final int txtvwIpProtocol=0x7f060075;
+        public static final int txtvwIpSourceIP=0x7f060077;
+        public static final int txtvwIpTOS=0x7f06006f;
+        public static final int txtvwIpTTL=0x7f060074;
+        public static final int txtvwIpTotalLength=0x7f060070;
+        public static final int txtvwIpVersion=0x7f06006d;
+        public static final int txtvwPacketCharData=0x7f06004f;
+        public static final int txtvwPacketStringData=0x7f060050;
+        public static final int txtvwTcpAckNumber=0x7f06007c;
+        public static final int txtvwTcpCheckSum=0x7f060081;
+        public static final int txtvwTcpDataOffset=0x7f06007d;
+        public static final int txtvwTcpDestPort=0x7f06007a;
+        public static final int txtvwTcpFlags=0x7f06007f;
+        public static final int txtvwTcpOptions=0x7f060083;
+        public static final int txtvwTcpReserve=0x7f06007e;
+        public static final int txtvwTcpSeqNumber=0x7f06007b;
+        public static final int txtvwTcpSourcePort=0x7f060079;
+        public static final int txtvwTcpUrgent=0x7f060082;
+        public static final int txtvwTcpWindowSize=0x7f060080;
+        public static final int txtvwUdpCheckSum=0x7f060089;
+        public static final int txtvwUdpDestPort=0x7f060087;
+        public static final int txtvwUdpLength=0x7f060088;
+        public static final int txtvwUdpSourcePort=0x7f060086;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
         public static final int withText=0x7f06000c;
@@ -1222,15 +1316,32 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
-        public static final int activity_main=0x7f030018;
-        public static final int activity_rsplash=0x7f030019;
-        public static final int capture_dialog=0x7f03001a;
-        public static final int listview_item_layout=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int activity_analyze=0x7f030018;
+        public static final int activity_capture=0x7f030019;
+        public static final int activity_main=0x7f03001a;
+        public static final int activity_packet_brief=0x7f03001b;
+        public static final int activity_packet_detail=0x7f03001c;
+        public static final int bottom_menu=0x7f03001d;
+        public static final int capture_dialog=0x7f03001e;
+        public static final int capture_settings_listview_item=0x7f03001f;
+        public static final int packet_brief_listview_item=0x7f030020;
+        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int view_arp_header=0x7f030022;
+        public static final int view_botton_menu=0x7f030023;
+        public static final int view_ether_header=0x7f030024;
+        public static final int view_ip_header=0x7f030025;
+        public static final int view_tcp_header=0x7f030026;
+        public static final int view_top_menu=0x7f030027;
+        public static final int view_udp_header=0x7f030028;
     }
     public static final class menu {
-        public static final int main=0x7f0e0000;
-        public static final int rsplash=0x7f0e0001;
+        public static final int analyze=0x7f0e0000;
+        public static final int analyze_activity2=0x7f0e0001;
+        public static final int capture=0x7f0e0002;
+        public static final int csplash=0x7f0e0003;
+        public static final int main=0x7f0e0004;
+        public static final int packet_detail=0x7f0e0005;
+        public static final int rsplash=0x7f0e0006;
     }
     public static final class raw {
         public static final int cap_tool=0x7f050000;
@@ -1279,7 +1390,13 @@ containing a value of this type.
         public static final int action_settings=0x7f0b000f;
         public static final int action_share=0x7f0b0010;
         public static final int all_interfaces=0x7f0b0015;
+        public static final int analyze=0x7f0b0033;
+        public static final int analyzing=0x7f0b003c;
         public static final int app_name=0x7f0b000d;
+        public static final int arp_header=0x7f0b0043;
+        public static final int arrow=0x7f0b0039;
+        public static final int browse=0x7f0b0034;
+        public static final int capture=0x7f0b0032;
         public static final int capture_failed=0x7f0b002b;
         public static final int capture_size=0x7f0b0018;
         public static final int capture_started=0x7f0b0029;
@@ -1291,7 +1408,10 @@ containing a value of this type.
         public static final int click_to_set=0x7f0b001a;
         public static final int confirm=0x7f0b0030;
         public static final int default_capture_size=0x7f0b0022;
+        public static final int dummy_button=0x7f0b003f;
+        public static final int dummy_content=0x7f0b0040;
         public static final int empty_file_name=0x7f0b001c;
+        public static final int ether_header=0x7f0b0042;
         public static final int excute_failed=0x7f0b002d;
         public static final int file_exits=0x7f0b001f;
         public static final int get_root_permission_fail=0x7f0b002f;
@@ -1299,9 +1419,12 @@ containing a value of this type.
         public static final int hello_world=0x7f0b000e;
         public static final int invalid_capture_size=0x7f0b0023;
         public static final int invalid_file_name=0x7f0b001e;
+        public static final int ip_header=0x7f0b0044;
         public static final int no_root_permission=0x7f0b0014;
+        public static final int packet_length=0x7f0b0038;
         public static final int pcap_file_suffix=0x7f0b0025;
         public static final int press_to_exit=0x7f0b0012;
+        public static final int protocol=0x7f0b0037;
         public static final int regenerate_file_name=0x7f0b001d;
         public static final int save_file_name=0x7f0b0024;
         public static final int sdcard_not_exist=0x7f0b0013;
@@ -1311,8 +1434,17 @@ containing a value of this type.
         public static final int stop_capture=0x7f0b0027;
         public static final int stop_capture_failed=0x7f0b002c;
         public static final int stopping_capture=0x7f0b0028;
+        public static final int tcp_header=0x7f0b0046;
+        public static final int time=0x7f0b0036;
+        public static final int title_activity_analyze=0x7f0b0035;
+        public static final int title_activity_analyze_activity2=0x7f0b003b;
+        public static final int title_activity_capture=0x7f0b003a;
+        public static final int title_activity_csplash=0x7f0b003e;
+        public static final int title_activity_packet_detail=0x7f0b0041;
         public static final int title_activity_rsplash=0x7f0b0031;
         public static final int title_prompt=0x7f0b002e;
+        public static final int udp_header=0x7f0b0045;
+        public static final int waitting_for_analyzing=0x7f0b003d;
     }
     public static final class style {
         /** 
@@ -1341,6 +1473,10 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0c008c;
+        public static final int ButtonBar=0x7f0c00a3;
+        public static final int ButtonBarButton=0x7f0c00a4;
+        public static final int FullscreenActionBarStyle=0x7f0c00a9;
+        public static final int FullscreenTheme=0x7f0c00a2;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0c0063;
@@ -1543,17 +1679,31 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0c000a;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0c0009;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0c0022;
-        public static final int btnStyleDarkcyan=0x7f0c0097;
-        public static final int btnStyleRed=0x7f0c0096;
-        public static final int lnrlytStyle1=0x7f0c0093;
-        public static final int lnrlytStyle2=0x7f0c0094;
-        public static final int spnnrStyle=0x7f0c0095;
+        public static final int btnStyleRed=0x7f0c009f;
+        public static final int btnStyleRedBorder=0x7f0c00a0;
+        public static final int lnrlytStyleAnalyze=0x7f0c009b;
+        public static final int lnrlytStyleCapture=0x7f0c0099;
+        public static final int lnrlytStyleCaptureDlg=0x7f0c009a;
+        public static final int lnrlytStylePacketBrief=0x7f0c009d;
+        public static final int lnrlytStyleProtocolLayer=0x7f0c00a8;
+        public static final int lnrlytStyleSaveFileName=0x7f0c009c;
+        public static final int rdbtnStyleRed=0x7f0c00a1;
+        public static final int spnnrStyle=0x7f0c009e;
         public static final int txtvwStyleBig=0x7f0c008d;
         public static final int txtvwStyleBig2=0x7f0c008e;
-        public static final int txtvwStyleBig3=0x7f0c008f;
-        public static final int txtvwStyleSmall=0x7f0c0090;
-        public static final int txtvwStyleSmall2=0x7f0c0091;
-        public static final int txtvwStyleSmall3=0x7f0c0092;
+        public static final int txtvwStyleBig3=0x7f0c0090;
+        public static final int txtvwStyleCaptureAmount=0x7f0c008f;
+        public static final int txtvwStyleMenu=0x7f0c0094;
+        public static final int txtvwStylePacketBriefArrow=0x7f0c0098;
+        public static final int txtvwStylePacketBriefDate=0x7f0c0095;
+        public static final int txtvwStylePacketBriefIP=0x7f0c0097;
+        public static final int txtvwStylePacketBriefProtocol=0x7f0c0096;
+        public static final int txtvwStylePacketRawData=0x7f0c00a7;
+        public static final int txtvwStyleProtocolHeader=0x7f0c00a5;
+        public static final int txtvwStyleProtocolItem=0x7f0c00a6;
+        public static final int txtvwStyleSmall=0x7f0c0091;
+        public static final int txtvwStyleSmall2=0x7f0c0092;
+        public static final int txtvwStyleSmall3=0x7f0c0093;
     }
     public static final class styleable {
         /**  ============================================ 
@@ -2243,6 +2393,46 @@ containing a value of this type.
           @attr name com.sprintwind.packetcapturetool:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
+        /** 
+         Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels.
+    
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarButtonStyle com.sprintwind.packetcapturetool:metaButtonBarButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarStyle com.sprintwind.packetcapturetool:metaButtonBarStyle}</code></td><td></td></tr>
+           </table>
+           @see #ButtonBarContainerTheme_metaButtonBarButtonStyle
+           @see #ButtonBarContainerTheme_metaButtonBarStyle
+         */
+        public static final int[] ButtonBarContainerTheme = {
+            0x7f01006e, 0x7f01006f
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.sprintwind.packetcapturetool.R.attr#metaButtonBarButtonStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.sprintwind.packetcapturetool:metaButtonBarButtonStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.sprintwind.packetcapturetool.R.attr#metaButtonBarStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.sprintwind.packetcapturetool:metaButtonBarStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
         /** Attributes that can be used with a CompatTextView.
            <p>Includes the following attributes:</p>
            <table>

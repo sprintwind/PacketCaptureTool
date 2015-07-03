@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/lnrlytStyleProtocolLayer"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/txtvwStyleProtocolHeader"
+        android:text="@string/udp_header"
+        />
+    
+    <!-- 分割线 -->
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/darkgray"/>
+    
+    <TableLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="0, 1"
+        >
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+		    
+		    <TextView
+		        android:id="@+id/txtvwUdpSourcePort"
+		        android:layout_width="fill_parent"
+		        style="@style/txtvwStyleProtocolItem"
+		        android:layout_height="wrap_content"
+		        />
+		    
+		    <TextView
+		        android:id="@+id/txtvwUdpDestPort"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        style="@style/txtvwStyleProtocolItem"
+		        />
+        </TableRow>
+        
+        <!-- 分割线 -->
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="1px"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:background="@color/lightgray"/>
+        
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            
+		    <TextView
+		        android:id="@+id/txtvwUdpLength"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        style="@style/txtvwStyleProtocolItem"
+		        />
+		    
+		    <TextView
+		        android:id="@+id/txtvwUdpCheckSum"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        style="@style/txtvwStyleProtocolItem"
+		        />
+		</TableRow>
+		
+    </TableLayout>
+
+</LinearLayout>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
@@ -16,7 +17,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
+
     <style name="txtvwStyleBig">
         <item name="android:background">#FFFFF0</item>
         <item name="android:textColor">#000000</item>
@@ -25,25 +26,34 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">20dp</item>
     </style>
-    
+
     <style name="txtvwStyleBig2">
-        <item name="android:background">#F8F8FF</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:background">@color/transparent_background</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="txtvwStyleCaptureAmount">
+        <item name="android:background">@color/transparent_background</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingBottom">10dp</item>
     </style>
-    
+
     <style name="txtvwStyleBig3">
-        <item name="android:background">#F8F8FF</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/ghostwhite</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
-    
+
     <style name="txtvwStyleSmall">
         <item name="android:background">#FFFFF0</item>
         <item name="android:textColor">#000000</item>
@@ -52,7 +62,7 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
     </style>
-    
+
     <style name="txtvwStyleSmall2">
         <item name="android:background">#F8F8FF</item>
         <item name="android:textColor">#000000</item>
@@ -61,44 +71,188 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
     </style>
-    
+
     <style name="txtvwStyleSmall3">
         <item name="android:background">#F8F8FF</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FF4500</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">10dp</item>
     </style>
-    
-    <style name="lnrlytStyle1">
-        <item name="android:background">#FFFFF0</item>
+
+    <style name="txtvwStyleMenu">
+        <item name="android:background">@drawable/bckgrnd_selector_blue</item>
+        <item name="android:textColor">@color/color_selector_crimson</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:gravity">center</item>
     </style>
-    
-    <style name="lnrlytStyle2">
-        <item name="android:background">#F8F8FF</item>
+
+    <style name="txtvwStylePacketBriefDate">
+        <item name="android:background">@drawable/lstvw_bckgrnd_selector</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
-    
+
+    <style name="txtvwStylePacketBriefProtocol">
+        <item name="android:background">@drawable/lstvw_bckgrnd_selector</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="txtvwStylePacketBriefIP">
+        <item name="android:background">@drawable/lstvw_bckgrnd_selector</item>
+        <item name="android:textColor">@color/orangered</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="txtvwStylePacketBriefArrow">
+        <item name="android:background">@drawable/lstvw_bckgrnd_selector</item>
+        <item name="android:textColor">@color/midnightblue</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="lnrlytStyleCapture">
+        <item name="android:background">@color/whitegray</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="lnrlytStyleCaptureDlg">
+        <item name="android:background">@color/transparent_background</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="lnrlytStyleAnalyze">
+        <item name="android:background">@color/whitegray</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="lnrlytStyleSaveFileName">
+        <item name="android:background">@color/transparent_background</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="lnrlytStylePacketBrief">
+        <item name="android:background">@drawable/lstvw_bckgrnd_selector</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
     <style name="spnnrStyle">
         <item name="android:paddingLeft">80dp</item>
         <item name="android:paddingRight">80dp</item>
     </style>
-    
+
     <style name="btnStyleRed">
-        <item name="android:background">#FF0000</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/red_button_selector</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
     </style>
-    
-    <style name="btnStyleDarkcyan">
-        <item name="android:background">#ADD8E6</item>
-        <item name="android:textColor">#000000</item>
+
+    <style name="btnStyleRedBorder">
+        <item name="android:background">@drawable/red_border_button_selector</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="rdbtnStyleRed">
+        <item name="android:background">@color/floralwhite</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_selector_crimson</item>
+        <item name="android:button">@null</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
-        
+    </style>
+
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">@style/ButtonBar</item>
+        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
+    </style>
+
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <style name="ButtonBarButton" />
+    
+    <style name="txtvwStyleProtocolHeader">
+        <item name="android:textColor">@color/orangered</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:gravity">center</item>
     </style>
     
+    <style name="txtvwStyleProtocolItem">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+    
+    <style name="txtvwStylePacketRawData">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+    </style>
+    
+    <style name="lnrlytStyleProtocolLayer">
+        <item name="android:background">@color/transparent_background</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
 </resources>
