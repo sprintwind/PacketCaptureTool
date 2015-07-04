@@ -5,6 +5,10 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="/home/sprintwind/Downloads/android_3.6.5/android_api_3.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/android_api_3.6.9.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/baidu_appx_android_2.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/BDAutoUpdateSDK_20150605_V1.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/need_lib.jar"/>
+	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/patchupdate.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

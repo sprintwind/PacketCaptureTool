@@ -2,6 +2,8 @@ package com.sprintwind.packetcapturetool;
 
 import org.json.JSONObject;
 
+import com.baidu.appx.BDBannerAd;
+import com.baidu.appx.BDBannerAd.BannerAdListener;
 import com.baidu.mobstat.StatService;
 import com.sprintwind.packetcapturetool.R;
 
@@ -25,7 +27,6 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.baidu.appx.BDBannerAd;
 
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB) public class MainActivity extends Activity {
@@ -40,6 +41,8 @@ import com.baidu.appx.BDBannerAd;
 	
 	private RelativeLayout appxBannerContainer;
 	private static BDBannerAd bannerAdView;
+	
+	private static final String TAG = "sprintwind";
 	
 	private long exitTime = 0;
 
@@ -57,6 +60,45 @@ import com.baidu.appx.BDBannerAd;
                 .hide(fragments[0]).hide(fragments[1]);  
         fragmentTransaction.show(fragments[0]).commit();  
         setFragmentIndicator(); 
+        
+        bannerAdView = new BDBannerAd(this, "CgK84vIbCSHjBP79f62GqzFFRWveWCIW",
+				"ai4YAtHGf2LcyvBdHd0eoLY7");
+
+		bannerAdView.setAdSize(BDBannerAd.SIZE_320X50);
+		
+		bannerAdView.setAdListener(new BannerAdListener() {
+
+			@Override
+			public void onAdvertisementDataDidLoadFailure() {
+				Log.e(TAG, "load failure");
+			}
+
+			@Override
+			public void onAdvertisementDataDidLoadSuccess() {
+				Log.e(TAG, "load success");
+			}
+
+			@Override
+			public void onAdvertisementViewDidClick() {
+				Log.e(TAG, "on click");
+			}
+
+			@Override
+			public void onAdvertisementViewDidShow() {
+				Log.e(TAG, "on show");
+			}
+
+			@Override
+			public void onAdvertisementViewWillStartNewIntent() {
+				Log.e(TAG, "leave app");
+			}
+		});
+
+		// ŽŽœš¹ãžæÈÝÆ÷
+		appxBannerContainer = (RelativeLayout) findViewById(R.id.appx_banner_container);
+
+		// ÏÔÊŸ¹ãžæÊÓÍŒ
+		appxBannerContainer.addView(bannerAdView);
     }
     
     private void setFragmentIndicator() {  

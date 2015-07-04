@@ -5,11 +5,7 @@
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="action_share">分享</string>
-<<<<<<< HEAD
     <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，现在已经在Android市场上线了,下载地址:http://apk.hiapk.com/appinfo/com.sprintwind.packetcapturetool,赶快行动吧!</string>
-=======
-    <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，现在已经在Android市场上线了,下载地址：http://apk.hiapk.com/appinfo/com.sprintwind.packetcapturetool/1,赶快行动吧!</string>
->>>>>>> b1fd29442c4780ee3c56b70f7386d63262dec0cf
     <string name="press_to_exit">再按一次返回键退出程序</string>
     <string name="sdcard_not_exist">SD卡不存在,请插入SD卡后重试</string>
     <string name="no_root_permission">您的手机还没有获得root权限，请先获取root权限</string>

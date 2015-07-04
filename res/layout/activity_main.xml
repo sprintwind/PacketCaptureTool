@@ -9,7 +9,8 @@
     <RelativeLayout 
            android:id="@+id/appx_banner_container" 
            android:layout_width="match_parent" 
-           android:layout_height="wrap_content" 
+           android:layout_height="wrap_content"
+           android:layout_gravity="top"
            >
    	</RelativeLayout>
     
@@ -17,16 +18,16 @@
         android:id="@+id/frgmntCapture"
         android:name="com.sprintwind.packetcapturetool.CaptureActivity"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.1"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
          />
     
     <fragment
         android:id="@+id/frgmntAnalyze"
         android:name="com.sprintwind.packetcapturetool.AnalyzeActivity"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.1"
+        android:layout_height="match_parent"
+		android:layout_weight="7"
         />
     
     <View  
@@ -35,11 +36,15 @@
 	   android:background="?android:attr/listDivider"  
 	/> 
     
-    <RadioGroup  
+    <RelativeLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+           >
+        <RadioGroup  
         android:id="@+id/rdgrpBottomMenu"  
         android:layout_width="fill_parent"  
-        android:layout_height="fill_parent" 
-        android:layout_weight="8.9"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >  
   
         <RadioButton  
@@ -61,6 +66,8 @@
             style="@style/rdbtnStyleRed"
             android:text="@string/analyze" />  
    
-    </RadioGroup>
+    	</RadioGroup>
+    </RelativeLayout>
+    
    
 </LinearLayout>
