@@ -30,6 +30,14 @@
 		android:layout_weight="7"
         />
     
+    <fragment
+        android:id="@+id/frgmntMore"
+        android:name="com.sprintwind.packetcapturetool.MoreActivity"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+         />
+    
     <View  
 	   android:layout_width="fill_parent"  
 	   android:layout_height="1px" 
@@ -64,7 +72,16 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/ic_action_analyze"
             style="@style/rdbtnStyleRed"
-            android:text="@string/analyze" />  
+            android:text="@string/analyze" />
+        
+        <RadioButton  
+            android:id="@+id/rdbttnMore"  
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_action_more"
+            style="@style/rdbtnStyleRed"
+            android:text="@string/more" /> 
    
     	</RadioGroup>
     </RelativeLayout>

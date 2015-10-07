@@ -1,7 +1,5 @@
 package com.sprintwind.packetcapturetool;
 
-import org.json.JSONObject;
-
 import com.baidu.appx.BDBannerAd;
 import com.baidu.appx.BDBannerAd.BannerAdListener;
 import com.baidu.mobstat.StatService;
@@ -19,9 +17,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;  
 import android.widget.RelativeLayout;
@@ -36,8 +31,6 @@ import android.widget.Toast;
 	private FragmentTransaction fragmentTransaction;
 	
 	private RadioGroup rdgrpBottomMenu;
-	private RadioButton rdbttnCapture;
-	private RadioButton rdbttnAnalyze;
 	
 	private RelativeLayout appxBannerContainer;
 	private static BDBannerAd bannerAdView;
@@ -51,18 +44,19 @@ import android.widget.Toast;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        fragments = new Fragment[2];  
+        fragments = new Fragment[3];  
         fragmentManager = getFragmentManager();  
         fragments[0] = fragmentManager.findFragmentById(R.id.frgmntCapture);  
-        fragments[1] = fragmentManager.findFragmentById(R.id.frgmntAnalyze);  
+        fragments[1] = fragmentManager.findFragmentById(R.id.frgmntAnalyze);
+        fragments[2] = fragmentManager.findFragmentById(R.id.frgmntMore);
 
         fragmentTransaction = fragmentManager.beginTransaction()  
-                .hide(fragments[0]).hide(fragments[1]);  
+                .hide(fragments[0]).hide(fragments[1]).hide(fragments[2]);  
         fragmentTransaction.show(fragments[0]).commit();  
         setFragmentIndicator(); 
         
         bannerAdView = new BDBannerAd(this, "CgK84vIbCSHjBP79f62GqzFFRWveWCIW",
-				"ai4YAtHGf2LcyvBdHd0eoLY7");
+				"d7u2VhB9RAKKB3j4k0R4PcMn");
 
 		bannerAdView.setAdSize(BDBannerAd.SIZE_320X50);
 		
@@ -103,16 +97,14 @@ import android.widget.Toast;
     
     private void setFragmentIndicator() {  
     	  
-        rdgrpBottomMenu = (RadioGroup) findViewById(R.id.rdgrpBottomMenu);  
-        rdbttnCapture = (RadioButton) findViewById(R.id.rdbttnCapture);  
-        rdbttnAnalyze = (RadioButton) findViewById(R.id.rdbttnAnalyze);  
+        rdgrpBottomMenu = (RadioGroup) findViewById(R.id.rdgrpBottomMenu); 
   
         rdgrpBottomMenu.setOnCheckedChangeListener(new OnCheckedChangeListener() {  
   
             @Override  
             public void onCheckedChanged(RadioGroup group, int checkedId) {  
                 fragmentTransaction = fragmentManager.beginTransaction()  
-                        .hide(fragments[0]).hide(fragments[1]);  
+                        .hide(fragments[0]).hide(fragments[1]).hide(fragments[2]);  
                 switch (checkedId) {  
                 case R.id.rdbttnCapture:  
                     fragmentTransaction.show(fragments[0]).commit();  
@@ -120,8 +112,11 @@ import android.widget.Toast;
   
                 case R.id.rdbttnAnalyze:  
                     fragmentTransaction.show(fragments[1]).commit();  
-                    break;  
-  
+                    break; 
+                    
+                case R.id.rdbttnMore:
+                	fragmentTransaction.show(fragments[2]).commit(); 
+                	break;
                 default:  
                     break;  
                 }  
@@ -145,7 +140,7 @@ import android.widget.Toast;
         int id = item.getItemId();
         if (id == R.id.action_share) {
         	Intent intent=new Intent(Intent.ACTION_SEND);   
-            intent.setType("image/*");   
+            intent.setType("text/*");   
             intent.putExtra(Intent.EXTRA_SUBJECT, "分享");   
             intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_string));    
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);   

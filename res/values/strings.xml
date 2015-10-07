@@ -5,6 +5,13 @@
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="action_share">分享</string>
+    <string name="share_with_friends">分享给好友</string>
+    <string name="suggestion">意见反馈</string>
+    <string name="encourage">给我鼓励</string>
+    <string name="current_version">当前版本</string>
+    <string name="get_version_failed">获取当前版本号失败</string>
+    <string name="suggestion_hint">感谢您对抓包精灵的支持, 请输入您宝贵的意见</string>
+    <string name="send">发送</string>
     <string name="share_string">我发现个超级好用的软件，推荐给你哦，名字叫抓包精灵，现在已经在Android市场上线了,下载地址:http://apk.hiapk.com/appinfo/com.sprintwind.packetcapturetool,赶快行动吧!</string>
     <string name="press_to_exit">再按一次返回键退出程序</string>
     <string name="sdcard_not_exist">SD卡不存在,请插入SD卡后重试</string>
@@ -40,6 +47,7 @@
     <string name="title_activity_rsplash">RSplashActivity</string>
     <string name="capture">抓包</string>
     <string name="analyze">解析</string>
+    <string name="more">更多</string>
     <string name="browse">浏览</string>
     <string name="title_activity_analyze">报文概要信息</string>
     <string name="time">时间:</string>
@@ -57,6 +65,9 @@
     <string name="ether_header">Ethernet</string>
     <string name="arp_header">ARP(Address Resolution Protocol)</string>
     <string name="ip_header">IP(Internet Protocol)</string>
-	<string name="udp_header">UDP(User Datagram Protocol)</string>
-	<string name="tcp_header">TCP(Transmission Control Protocol)</string>
+    <string name="udp_header">UDP(User Datagram Protocol)</string>
+    <string name="tcp_header">TCP(Transmission Control Protocol)</string>
+    <string name="title_activity_more">MoreActivity</string>
+    <string name="title_activity_suggestion">SuggestionActivity</string>
+
 </resources>

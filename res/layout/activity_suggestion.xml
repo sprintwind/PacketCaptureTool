@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.sprintwind.packetcapturetool.SuggestionActivity" >
+
+    <EditText 
+        android:id="@+id/edttxtSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="@string/suggestion_hint"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:textColorHint="#AAAAAA"
+        android:background="@drawable/suggestion_edittext_selector"
+        
+        />
+    <Button 
+        android:id="@+id/bttnSendSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/send"
+        style="@style/btnStyleRed"/>
+    
+</LinearLayout>

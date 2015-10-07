@@ -10,5 +10,8 @@
 	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/BDAutoUpdateSDK_20150605_V1.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/need_lib.jar"/>
 	<classpathentry exported="true" kind="lib" path="/BDIntegrationSDK_LibProject/libs/patchupdate.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/sprintwind/Downloads/Android·¢ËÍÓÊ¼þmail.jar+activation.jar+additionnal.jar/activation.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/sprintwind/Downloads/Android·¢ËÍÓÊ¼þmail.jar+activation.jar+additionnal.jar/additionnal.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/sprintwind/Downloads/Android·¢ËÍÓÊ¼þmail.jar+activation.jar+additionnal.jar/mail.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
