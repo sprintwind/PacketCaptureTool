@@ -9,11 +9,11 @@
         android:id="@+id/lstVwSettings"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:dividerHeight="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:dividerHeight="4dp"
         android:divider="@color/whitegray">
     </ListView>
     
@@ -23,9 +23,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         style="@style/lnrlytStyleSaveFileName"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
    <TextView 
 	       android:layout_width="fill_parent"
@@ -45,8 +45,7 @@
 		       android:layout_height="wrap_content"
 		       android:inputType="textCapCharacters"
 		       android:layout_marginLeft="10dp"
-		       android:textAlignment="center"
-		       android:textSize="16sp"
+		       style="@style/edttxtStyleFileName"
 		       android:id="@+id/etFileName" >
 		   </EditText>
 		    <TextView 
@@ -75,8 +74,9 @@
       android:layout_height="wrap_content"
       style="@style/btnStyleRed"
       android:layout_marginTop="10dp"
-      android:layout_marginLeft="5dp"
-      android:layout_marginRight="5dp"
+      android:layout_marginBottom="10dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
       android:id="@+id/btnStartCapture"
       android:text="@string/start_capture"/>
 

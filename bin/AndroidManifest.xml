@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sprintwind.packetcapturetool"
-    android:versionCode="5"
-    android:versionName="1.3.150703" >
+    android:versionCode="6"
+    android:versionName="1.3.150710" >
 
     <!-- android:sharedUserId="android.uid.system"> -->
 
@@ -27,24 +27,40 @@
         android:icon="@drawable/ic_launcher_red"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="BDAPPID"
+            android:value="6105462" />
+        <meta-data
+            android:name="BDAPPKEY"
+            android:value="CgK84vIbCSHjBP79f62GqzFFRWveWCIW" />
         
-        <meta-data android:name="BDAPPID" android:value="6105462"/>
-        <meta-data android:name="BDAPPKEY" android:value="CgK84vIbCSHjBP79f62GqzFFRWveWCIW"/>
         <!-- 是否开启错误日志统计，默认为false -->
-        <meta-data android:name="BaiduMobAd_EXCEPTION_LOG" android:value="true"/>
+        <meta-data
+            android:name="BaiduMobAd_EXCEPTION_LOG"
+            android:value="true" />
         <!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
-        <meta-data android:name="BaiduMobAd_SEND_STRATEGY" android:value="APP_START"/>
+        <meta-data
+            android:name="BaiduMobAd_SEND_STRATEGY"
+            android:value="APP_START" />
         <!-- 日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔(需要时取消下行注释即可)。取值为1-24的整数，默认为1 -->
         <!-- <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="2" /> -->
         <!-- 日志仅在wifi网络下发送，默认为false -->
-        <meta-data android:name="BaiduMobAd_ONLY_WIFI" android:value="false"/>
+        <meta-data
+            android:name="BaiduMobAd_ONLY_WIFI"
+            android:value="false" />
         <!-- 是否获取基站位置信息 ,默认为true -->
-        <meta-data android:name="BaiduMobAd_CELL_LOCATION" android:value="true"/>
+        <meta-data
+            android:name="BaiduMobAd_CELL_LOCATION"
+            android:value="true" />
         <!-- 是否获取GPS位置信息，默认为true -->
-        <meta-data android:name="BaiduMobAd_GPS_LOCATION" android:value="true"/>
+        <meta-data
+            android:name="BaiduMobAd_GPS_LOCATION"
+            android:value="true" />
         <!-- 是否获取WIFI位置信息，默认为true -->
-        <meta-data android:name="BaiduMobAd_WIFI_LOCATION" android:value="true"/>
- 
+        <meta-data
+            android:name="BaiduMobAd_WIFI_LOCATION"
+            android:value="true" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -76,6 +92,55 @@
         <activity
             android:name=".PacketDetailActivity"
             android:label="@string/title_activity_packet_detail" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".MoreActivity"
+            android:label="@string/title_activity_more" >
+        </activity>
+
+        <!-- ↓↓↓ 自更新SDK ↓↓↓ -->
+        <activity
+            android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:theme="@style/bdp_update_dialog_style_fullscreen" />
+
+        <receiver
+            android:name="com.baidu.autoupdatesdk.receiver.BDBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_UPDATE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_DOWNLOAD_COMPLETE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_AS" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_AS_DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".BannerAdActivity" android:label="@string/app_name">
+        </activity>
+        
+        <activity android:name="com.baidu.appx.ui.BDInnerBrowser" />
+
+        <receiver android:name="com.baidu.appx.app_download.CompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+                <!-- 注意！！ 这句必须要加，否则接收不到安装完成广播 -->
+            </intent-filter>
+        </receiver>
+        <!-- ↑↑↑ 自更新SDK ↑↑↑ -->
+        <activity
+            android:name=".SuggestionActivity"
+            android:label="@string/title_activity_suggestion" >
         </activity>
     </application>
 

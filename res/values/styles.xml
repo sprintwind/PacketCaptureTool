@@ -53,6 +53,15 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
+    
+    <style name="txtvwStyleMore">
+        <item name="android:background">@color/ghostwhite</item>
+        <item name="android:textColor">@color/orangered</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
 
     <style name="txtvwStyleSmall">
         <item name="android:background">#FFFFF0</item>
@@ -60,6 +69,15 @@
         <item name="android:textSize">14sp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+    
+    <style name="edttxtStyleFileName">
+        <item name="android:background">#FFFFF0</item>
+        <item name="android:textColor">@color/orangered</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">10dp</item>
     </style>
 
